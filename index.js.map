@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/js/fetchEvents.js"],"sourcesContent":["const API_KEY = \"3vLlhLsn5MSlQI96Cy78HBPNhef1xnsS\";\nfetch(\"https://app.ticketmaster.com/discovery/v2/events.json?apikey=3vLlhLsn5MSlQI96Cy78HBPNhef1xnsS\")\n.then(response => response.json())\n.then(data => console.log(data))\n"],"names":["response","data"],"mappings":"ssBACA,MAAM,+FAA+F,EACpG,KAAKA,GAAYA,EAAS,MAAM,EAChC,KAAKC,GAAQ,QAAQ,IAAIA,CAAI,CAAC"}
