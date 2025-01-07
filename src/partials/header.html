@@ -1,19 +1,32 @@
 <header class="header">
   <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="{=$icon-path}"></use>
-        </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-act}" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
-      </ul>
-    </nav>
+    <a class="header__logo__link" href="../index.html">
+      <picture>
+        <source srcset="/img/logo/logo-desktop@2x.png" media="(min-width:1200px)">
+        <source srcset="/img/logo/logo-tablet@2x.png" media="(min-width:768px)">
+        <source srcset="/img/logo/logo-mobile@2x.png" media="(max-width:767px)">
+        <img class="header__logo__img" src="#" alt="logo">
+      </picture>
+    </a>
+
+    <h1 class="header__title">FIND BEST EVENTS<br>AROUND THE WORLD</h1>
+    <form class="header__form">
+      <label class="header__form__label">
+        <input class="header__form__input" type="text" placeholder="Start searching">
+        <button class="header__form__btn">
+          <svg class="header__form__btn-icon">
+            <use href="/img/icons/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </label>
+      <label class="header__form__label">
+        <input class="header__form__input" type="text" placeholder="Choose country">
+        <button class="header__form__btn">
+          <svg class="header__form__btn-icon">
+            <use href="/img/icons/sprite.svg#icon-search"></use>
+          </svg>
+        </button>
+      </label>
+    </form>
   </div>
 </header>
