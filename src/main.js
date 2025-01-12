@@ -1,1 +1,2 @@
-import "/js/fetchEvents"
+import "/js/fetchEvents";
+import './js/baseMarkUp';
