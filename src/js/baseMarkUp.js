@@ -1,21 +1,20 @@
-import FetchEvents from './fetchEvents';
-import renderMovies from './card';
-import { createLogger } from 'vite';
+import EventsApiService from './fetchEvents';
+import cardMarkUp from '../templates/card';
+// import { createLogger } from 'vite';
 
-const list = document.getElementById('js-list');
+const list = document.querySelector('.cards__list');
 
-const fetchEvents = new FetchEvents();
+const eventsApiService = new EventsApiService();
+renderEvents();
+export default async function renderEvents() {
+  try {
+    const data = await eventsApiService.fetchEvents();
 
-async function renderEvents() {
-    try{
-        const data = await fetchEvents.EventsApiService();
+    const events = data._embedded?.events || '';
+    const markUp = cardMarkUp(events);
 
-        const events = data._embedded?.events || '';
-        const markUp = renderMovies(events);
-
-        list.insertAdjacentHTML('beforeend', markUp)
-    } catch(error) {
-        console.error(error)
-    }
+    list.insertAdjacentHTML('beforeend', markUp);
+  } catch (error) {
+    console.error(error);
+  }
 }
-
