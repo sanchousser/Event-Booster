@@ -1,2 +1,1 @@
-import "/js/fetchEvents";
-import './js/baseMarkUp';
+import fetchEvents from './js/fetchEvents';
