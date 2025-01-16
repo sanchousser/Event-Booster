@@ -1,0 +1,30 @@
+.pagination__section {
+    padding-top: 60px;
+    background-color: black;
+}
+
+.container {}
+
+.pagination__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 27px;
+}
+
+.pagination__list__item {}
+
+.pagination__list__button {
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.active {}
+
+.pagination__dots {
+    display: inline-block;
+    margin: 0 5px;
+    color: white;
+    font-size: 14px;
+}
