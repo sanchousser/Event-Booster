@@ -5,5 +5,6 @@
 
 /* components */
 @import url('./layout/header.css');
+@import url('./layout/modal.css');
 @import url('./layout/cards.css');
 @import url('./layout/countriesDroplist.css');
