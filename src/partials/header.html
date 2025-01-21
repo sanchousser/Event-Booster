@@ -20,12 +20,34 @@
         </button>
       </label>
       <label class="header__form__label">
-        <input class="header__form__input" type="text" placeholder="Choose country">
+        <!-- <input class="header__form__input" type="text" placeholder="Choose country">
         <button class="header__form__btn">
           <svg class="header__form__btn-icon">
             <use href="/img/icons/sprite.svg#icon-search"></use>
           </svg>
+        </button> -->
+        <!-- <select class="header__form__country__select" 
+        data-cls-option="fg-DarkGray"
+        data-cls-drop-list="bg-transparent"
+        data-cls-option-group="bg-transparent fg-white"
+        data-cls-selected-item-remover="fg-pink"
+        id="countries__list__select" 
+        data-role="select"> -->
+
+
+        <button type="button" class="header__form__country__button">
+          <p class="header__form__country__button-text">Choose country</p>
+          <select class="header__form__country__select" id="header__form__country__select">
+            <option class='header__form__country__option' value="Choose country">Choose country</option>
+          </select>
+          <svg class="header__form__btn-icon__choose">
+            <use href="/img/icons/sprite.svg#icon-arrow"></use>
+          </svg>
         </button>
+        
+
+
+        </select>
       </label>
     </form>
   </div>
