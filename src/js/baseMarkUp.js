@@ -5,18 +5,35 @@ import { renderPagination } from './pagination';
 
 const list = document.querySelector('.cards__list');
 const paginationList = document.querySelector('.pagination__list');
-
+const searchForm = document.getElementById('header__form');
+const searchInput = document.getElementById('search-input');
 
 const eventsApiService = new EventsApiService();
+
 renderEvents();
+
+searchForm.addEventListener('submit', onSearchFormSubmit)
+
+async function onSearchFormSubmit(e) {
+  e.preventDefault();
+
+  eventsApiService.searchQuery = searchInput.value.trim();
+  eventsApiService.page = 0;
+  clearEventsList();
+  clearPagination();
+
+  await renderEvents();
+}
+
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
 
-    const events = data._embedded?.events || '';
+    const events = data._embedded?.events || [];
     const markUp = cardMarkUp(events);
 
     list.insertAdjacentHTML('beforeend', markUp);
+
     const totalPages = data.page.totalPages;
     renderPagination(totalPages, eventsApiService.page, onPageClick)
   } catch (error) {
@@ -24,14 +41,20 @@ export default async function renderEvents() {
   }
 }
 
+
+
 function clearEventsList() {
   list.innerHTML = '';
 }
 
 function onPageClick(newPage) {
   if (newPage = eventsApiService.page) return;
-  EventsApiService.page = newPage;
+  eventsApiService.page = newPage;
 
   clearEventsList();
   renderEvents();
+}
+
+function clearPagination() {
+  paginationList.innerHTML = '';
 }

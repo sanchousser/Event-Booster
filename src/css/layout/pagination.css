@@ -3,24 +3,33 @@
     background-color: black;
 }
 
-.container {}
-
 .pagination__list {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 27px;
+    gap: 4px;
 }
 
-.pagination__list__item {}
+/* .pagination__list__item {} */
 
 .pagination__list__button {
     border: none;
     background-color: transparent;
     color: white;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-family: 'Montserrat', serif;
+    font-size: 14px;
+    font-weight: 400;
+
 }
 
-.active {}
+.pagination__list__button.active {
+    color: #DC56C5;
+    border-radius: 10px 0;
+    border: 1px solid #DC56C5;
+}
 
 .pagination__dots {
     display: inline-block;

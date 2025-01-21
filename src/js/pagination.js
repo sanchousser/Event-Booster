@@ -1,5 +1,8 @@
 export function renderPagination(totalPages, currentPage, onPageClick) {
     const paginationList = document.querySelector('.pagination__list');
+
+    paginationList.innerHTML = '';
+
     const paginationBtns = getPaginationBtns(totalPages, currentPage);
 
 
@@ -20,7 +23,7 @@ export function renderPagination(totalPages, currentPage, onPageClick) {
     paginationList.addEventListener('click', onPaginationClick)
 
     function onPaginationClick(e) {
-        if(e.target.tagName !== 'BUTTON') return
+        if(e.target.tagName !== 'BUTTON') return;
         const newPage = Number(e.target.dataset.page);
         if(newPage === currentPage) return;
         onPageClick(newPage);
@@ -48,8 +51,8 @@ function getPaginationBtns(totalPages, currentPage) {
         }
 
 
-        if (currentPage < totalPages - 3) buttons('...')
-        if (currentPage < totalPages - 1) buttons(totalPages - 1)
+        if (currentPage < totalPages - 3) buttons.push('...')
+        if (currentPage < totalPages - 1) buttons.push(totalPages - 1)
     }
 
     return buttons;
