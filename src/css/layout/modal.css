@@ -1,0 +1,503 @@
+h2 {
+  color: #dc56c5;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background: rgba(32, 13, 29, 0.6);
+  backdrop-filter: blur(1.5px);
+}
+
+.modal {
+  width: 272px;
+  height: 90vh;
+
+  padding: 75px 12px 104px 12px;
+
+  overflow-y: auto;
+  border-radius: 150px 0px;
+  background: #fff2fd;
+
+  position: relative;
+}
+
+.modal__close-button {
+  position: absolute;
+
+  top: 25px;
+  right: 25px;
+
+  background-color: transparent;
+}
+
+.close__icon {
+  width: 17px;
+  height: 17px;
+
+  fill: #4c00fe;
+}
+
+.modal__header {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 18px;
+}
+
+#img-circle {
+  width: 102px;
+  height: 102px;
+
+  border-radius: 50%;
+}
+
+.main__img {
+  display: none;
+}
+
+.info {
+  margin-bottom: 10px;
+}
+
+.info__text {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  width: 243px;
+  height: 100px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 5px;
+}
+
+.when {
+  margin-bottom: 10px;
+}
+
+.event__date {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.event__time {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.where {
+  margin-bottom: 10px;
+}
+
+.event__city {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+.event__place {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.who {
+  margin-bottom: 10px;
+}
+
+.event_performer {
+  color: #0e0e0e;
+  text-align: center;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-top: 5px;
+}
+
+.standart__ticket {
+  display: flex;
+  align-items: center;
+}
+
+.icon__standart {
+  margin-left: 25px;
+  margin-right: 13px;
+}
+
+.standart__price {
+  color: #0e0e0e;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  margin-top: 5px;
+}
+
+.button__container__standart {
+  padding: 0 64px;
+
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.buy__ticket {
+  width: 145px;
+  height: 40px;
+  flex-shrink: 0;
+
+  border-radius: 5px;
+  background: #4c00fe;
+
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.vip__ticket {
+  display: flex;
+  align-items: center;
+}
+
+.icon__vip {
+  margin-left: 40px;
+  margin-right: 13px;
+}
+
+.vip__price {
+  color: #0e0e0e;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.button__container__vip {
+  padding: 0 64px;
+
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more__button {
+  color: #4c00fe;
+  font-family: Montserrat;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  width: 230px;
+  height: 40px;
+
+  border-radius: 5px;
+  border: 1px solid #4c00fe;
+  background-color: #fff2fd;
+
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    width: 595px;
+    height: 831px;
+
+    border-radius: 300px 0px;
+    background: #fff2fd;
+
+    padding: 0;
+  }
+
+  .modal__header {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 43px;
+    margin-top: 0;
+
+    padding: 0;
+  }
+
+  #img-circle {
+    width: 70px;
+    height: 70px;
+
+    margin-top: 28px;
+  }
+
+  .modal__main {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .main__img {
+    display: block;
+
+    width: 233px;
+    height: 416px;
+
+    margin-left: 50px;
+  }
+
+  .modal__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  h2,
+  .info__text,
+  .event__date,
+  .event__time,
+  .event__city,
+  .event__place,
+  .event__who,
+  .standart__ticket,
+  .vip__ticket {
+    text-align: left;
+  }
+
+  .info__text {
+    width: 265px;
+    height: 100px;
+    margin-right: auto;
+
+    margin-top: 5px;
+  }
+
+  .icon__standart {
+    margin-left: 0;
+  }
+
+  .icon__vip {
+    margin-left: 0;
+  }
+
+  .button__container__standart,
+  .button__container__vip {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+  .buy__ticket,
+  .more__button {
+    margin-right: 0;
+  }
+
+  .more__button {
+    width: 255px;
+
+    border-radius: 5px;
+    border: 1px solid #dc56c5;
+  }
+
+  .standart__ticket {
+    margin-top: 5px;
+  }
+
+  .button__container__vip {
+    margin-bottom: 43px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .modal {
+    width: 930px;
+    height: 1023px;
+  }
+
+  .modal__header {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 43px;
+    margin-top: 0;
+
+    padding: 0;
+  }
+
+  #img-circle {
+    width: 132px;
+    height: 132px;
+
+    margin-top: 62px;
+  }
+
+  .modal__main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .main__img {
+    display: block;
+
+    width: 360px;
+    height: 641px;
+
+    margin-left: 30px;
+  }
+
+  .modal__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+  .info {
+    margin-bottom: 20px;
+  }
+
+  .info__text {
+    font-size: 18px;
+
+    width: 450px;
+    height: 66px;
+
+    margin-top: 7px;
+  }
+
+  .when {
+    margin-bottom: 20px;
+  }
+
+  .event__date {
+    font-size: 18px;
+
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+
+  .event__time {
+    font-size: 18px;
+  }
+
+  .where {
+    margin-bottom: 20px;
+  }
+
+  .event__city {
+    font-size: 18px;
+
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+  .event__place {
+    font-size: 18px;
+  }
+
+  .who {
+    margin-bottom: 20px;
+  }
+
+  .event_performer {
+    font-size: 18px;
+
+    margin-top: 7px;
+  }
+
+  .icon__standart {
+    margin-right: 13px;
+  }
+
+  .standart__price {
+    font-size: 18px;
+
+    margin-top: 5px;
+  }
+
+  .button__container__standart {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .vip__ticket {
+    display: flex;
+    align-items: center;
+  }
+
+  .icon__vip {
+    margin-right: 13px;
+  }
+
+  .vip__price {
+    font-size: 18px;
+  }
+
+  .button__container__vip {
+    margin-top: 20px;
+  }
+
+  .more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .more__button {
+    font-size: 16px;
+    font-weight: 500;
+
+    width: 255px;
+    height: 40px;
+
+    border: 1px solid #4c00fe;
+  }
+}

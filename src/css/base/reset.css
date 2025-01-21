@@ -42,3 +42,12 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+select {
+  -webkit-appearance: none;
+  /* Removes the arrow in Chrome, Safari, and Edge */
+  -moz-appearance: none;
+  /* Removes the arrow in Firefox */
+  appearance: none;
+  /* Standard property */
+}
