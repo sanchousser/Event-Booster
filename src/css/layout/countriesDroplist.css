@@ -1,0 +1,70 @@
+.header__form__country__button {
+  width: 270px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(10px);
+  padding: 10px 30px 10px 30px;
+  transition: all var(--animation);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.header__form__country__button:hover,
+.header__form__country__button:focus {
+  box-shadow: 0 0 20px #DC56C5;
+
+}
+
+.header__form__country__select {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #939393;
+  font-family: 'Montserrat', serif;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  appearance: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+}
+
+.header__form__btn-icon__choose {
+  width: 15px;
+  height: 10px;
+  fill: #939393;
+  z-index: 1;
+  pointer-events: none;
+  position: relative;
+}
+
+.header__form__country__button-text {
+  color: #939393;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Montserrat', serif;
+}
+
+
+.header__form__country__select:hover,
+.header__form__country__select:focus {
+  box-shadow: 0 0 20px #DC56C5;
+}
+
+.header__form__country__option {
+  color: #939393;
+  font-family: 'Montserrat', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
