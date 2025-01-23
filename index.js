@@ -7,7 +7,7 @@ var m=a=>{throw TypeError(a)};var v=(a,i,e)=>i.has(a)||m("Cannot "+e);var k=(a,i
                 <p class="cards__item__date">${r}</p>
                 <a href="${t}" class="cards__item__location__link">
                     <svg class="location__item__icon">
-                        <use href="/img/icons/sprite.svg#icon-location"> </use>
+                        <use href="../img/icons/sprite.svg#icon-location"> </use>
                     </svg>
 
                    ${l} </a>
