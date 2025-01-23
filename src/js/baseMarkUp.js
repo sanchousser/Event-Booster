@@ -41,6 +41,14 @@ export default async function renderEvents() {
     list.insertAdjacentHTML('beforeend', markUp);
 
     const totalPages = data.page.totalPages;
+
+    console.log(
+      'Total Pages:',
+      totalPages,
+      'Current Page:',
+      eventsApiService.page
+    );
+
     renderPagination(totalPages, eventsApiService.page, onPageClick)
   } catch (error) {
     console.error(error);
@@ -54,7 +62,7 @@ function clearEventsList() {
 }
 
 function onPageClick(newPage) {
-  if (newPage = eventsApiService.page) return;
+  if (newPage === eventsApiService.page) return;
   eventsApiService.page = newPage;
 
   clearEventsList();
