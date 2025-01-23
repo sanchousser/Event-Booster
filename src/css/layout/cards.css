@@ -59,3 +59,46 @@
   height: 10px;
   fill: #fff;
 }
+
+@media only screen and (min-width: 768px) {
+  .cards__list {
+    gap: 58px 30px;
+  }
+
+  .cards__item {
+    width: 185px;
+  }
+
+  .cards__item::after {
+    top: -14px;
+    right: -14px;
+    width: 155px;
+    height: 145px;
+  }
+
+  .cards__item__img {
+    width: 180px;
+    height: 227px;
+  }
+
+  .cards__item__title,
+  .cards__item__date {
+    font-size: 16px;
+  }
+
+  .cards__item__location__link,
+  .location__item__icon {
+    font-size: 14px;
+  }
+
+  .location__item__icon {
+    width: 7px;
+    height: 10px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .cards__list {
+    gap: 65px 70px;
+  }
+}
