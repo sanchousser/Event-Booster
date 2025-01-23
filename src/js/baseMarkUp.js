@@ -3,10 +3,12 @@ import cardMarkUp from '../templates/card';
 import { renderPagination } from './pagination';
 // import { createLogger } from 'vite';
 
+
 const list = document.querySelector('.cards__list');
 const paginationList = document.querySelector('.pagination__list');
 const searchForm = document.getElementById('header__form');
 const searchInput = document.getElementById('search-input');
+
 
 const eventsApiService = new EventsApiService();
 
@@ -23,6 +25,10 @@ async function onSearchFormSubmit(e) {
   clearPagination();
 
   await renderEvents();
+}
+
+async function onCountryFilterSubmit(e) {
+
 }
 
 export default async function renderEvents() {
