@@ -8,7 +8,7 @@ h2 {
 }
 
 .backdrop {
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
 
@@ -20,8 +20,6 @@ h2 {
   height: 100%;
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(1.5px);
-
-  z-index: 100;
 }
 
 .modal {
@@ -58,6 +56,13 @@ h2 {
   justify-content: center;
 
   margin-bottom: 18px;
+}
+
+#img-circle {
+  width: 102px;
+  height: 102px;
+
+  border-radius: 50%;
 }
 
 .main__img {
@@ -150,7 +155,7 @@ h2 {
 }
 
 .standart__ticket {
-  display: none;
+  display: flex;
   align-items: center;
 }
 
@@ -170,7 +175,7 @@ h2 {
 }
 
 .button__container__standart {
-  display: flex;
+  padding: 0 64px;
 
   margin-top: 10px;
   margin-bottom: 20px;
@@ -188,13 +193,12 @@ h2 {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
 
-  margin: 0 auto;
+  cursor: pointer;
 }
 
 .vip__ticket {
-  display: none;
+  display: flex;
   align-items: center;
 }
 
@@ -212,13 +216,10 @@ h2 {
 }
 
 .button__container__vip {
-  display: flex;
+  padding: 0 64px;
+
   margin-top: 10px;
   margin-bottom: 25px;
-}
-
-.buy__ticket-vip {
-  display: none;
 }
 
 .more {
@@ -242,8 +243,6 @@ h2 {
   background-color: #fff2fd;
 
   cursor: pointer;
-
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 768px) {
@@ -268,6 +267,9 @@ h2 {
   }
 
   #img-circle {
+    width: 70px;
+    height: 70px;
+
     margin-top: 28px;
   }
 
@@ -280,7 +282,10 @@ h2 {
   .main__img {
     display: block;
 
-    margin-left: 35px;
+    width: 233px;
+    height: 416px;
+
+    margin-left: 50px;
   }
 
   .modal__details {
@@ -328,7 +333,7 @@ h2 {
   }
   .buy__ticket,
   .more__button {
-    margin: 0;
+    margin-right: 0;
   }
 
   .more__button {
@@ -351,10 +356,6 @@ h2 {
   .modal {
     width: 930px;
     height: 1023px;
-
-    /* max-width: 90vw;  */
-    /* max-height: 95vh; */
-    /* overflow-y: auto; */
   }
 
   .modal__header {
@@ -368,6 +369,9 @@ h2 {
   }
 
   #img-circle {
+    width: 132px;
+    height: 132px;
+
     margin-top: 62px;
   }
 
@@ -379,6 +383,11 @@ h2 {
   }
 
   .main__img {
+    display: block;
+
+    width: 360px;
+    height: 641px;
+
     margin-left: 30px;
   }
 
@@ -460,7 +469,7 @@ h2 {
   }
 
   .vip__ticket {
-    display: none;
+    display: flex;
     align-items: center;
   }
 
@@ -485,8 +494,6 @@ h2 {
   .more__button {
     font-size: 16px;
     font-weight: 500;
-
-    margin-top: 45px;
 
     width: 255px;
     height: 40px;

@@ -14,27 +14,6 @@ const eventsApiService = new EventsApiService();
 
 renderEvents();
 
-
-function handleClickEvent() {
-  const cards = document.querySelectorAll('.cards__item');
-  cards.forEach(card => {
-    card.addEventListener(
-      'click',
-      event => {
-        const cardEl = event.target; 
-        const eventId = cardEl.getAttribute("data-id");
-
-        if (eventId) {
-          onCardClick(eventId);
-        }
-      },
-      { capture: true }
-    );
-  });
-}
-
-
-
 searchForm.addEventListener('submit', onSearchFormSubmit)
 
 async function onSearchFormSubmit(e) {
@@ -52,17 +31,9 @@ async function onCountryFilterSubmit(e) {
 
 }
 
-
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
-
-
-    window.events = data._embedded?.events || '';
-    const markUp = cardMarkUp(events);
-
- 
-    handleClickEvent();
 
     const events = data._embedded?.events || [];
     const markUp = cardMarkUp(events);
@@ -79,7 +50,6 @@ export default async function renderEvents() {
     );
 
     renderPagination(totalPages, eventsApiService.page, onPageClick)
-
   } catch (error) {
     console.error(error);
   }
