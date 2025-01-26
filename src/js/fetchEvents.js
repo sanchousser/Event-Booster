@@ -5,6 +5,8 @@ export default class EventsApiService {
   constructor() {
     this.page = 0;
     this.pageSize = 12;
+    this.searchQuery = '';
+    this.country = ''
   }
 
   async fetchEvents() {
@@ -12,6 +14,7 @@ export default class EventsApiService {
       apikey: this.#API_KEY,
       page: this.page,
       size: this.pageSize,
+      keyword: this.searchQuery,
     });
     const url = `${this.#API_URL}?${searchParams}&classificationName=music`;
 
