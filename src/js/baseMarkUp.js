@@ -16,8 +16,15 @@ export default async function renderEvents() {
 
     // window.events = data._embedded?.events || '';
     const events = data._embedded?.events || [];
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
     const markUp = cardMarkUp(events);
+
+    handleClickEvent();
+
+=======
+    const markUp = cardMarkUp(events);
+>>>>>>> Stashed changes
 
     handleClickEvent();
 
