@@ -1,6 +1,7 @@
 import EventsApiService from './fetchEvents';
 import cardMarkUp from '../templates/card';
 import { renderPagination } from './pagination';
+import { countryListSearch } from './countriesListMarkUp';
 // import { createLogger } from 'vite';
 
 
@@ -8,6 +9,8 @@ const list = document.querySelector('.cards__list');
 const paginationList = document.querySelector('.pagination__list');
 const searchForm = document.getElementById('header__form');
 const searchInput = document.getElementById('search-input');
+const countriesList = document.getElementById('header__form__country__select');
+const countriesListText = document.querySelector('.header__form__country__button-text');
 
 
 const eventsApiService = new EventsApiService();
@@ -21,7 +24,7 @@ function handleClickEvent() {
     card.addEventListener(
       'click',
       event => {
-        const cardEl = event.target; 
+        const cardEl = event.target;
         const eventId = cardEl.getAttribute("data-id");
 
         if (eventId) {
@@ -35,7 +38,33 @@ function handleClickEvent() {
 
 
 
-searchForm.addEventListener('submit', onSearchFormSubmit)
+searchForm.addEventListener('submit', onSearchFormSubmit);
+
+countriesList.addEventListener('change', onCountryListTextContentChange);
+
+async function onCountryListTextContentChange(e) {
+    e.preventDefault();
+
+    const selectedValue = e.target.value;
+    countriesListText.textContent = selectedValue;
+
+  eventsApiService.searchCountry = countryListSearch(e.target.value)
+
+  console.log(eventsApiService.searchCountry)
+
+  eventsApiService.page = 0;
+  clearEventsList();
+  clearPagination();
+
+  await renderEvents();
+}
+
+// async function onCountryFilterSearch() {
+// }
+
+
+
+
 
 async function onSearchFormSubmit(e) {
   e.preventDefault();
@@ -48,9 +77,9 @@ async function onSearchFormSubmit(e) {
   await renderEvents();
 }
 
-async function onCountryFilterSubmit(e) {
+// async function onCountryFilterSubmit(e) {
 
-}
+// }
 
 
 export default async function renderEvents() {
@@ -61,7 +90,7 @@ export default async function renderEvents() {
     // window.events = data._embedded?.events || '';
     // const markUp = cardMarkUp(events);
 
- 
+
 
     const events = data._embedded?.events || [];
     const markUp = cardMarkUp(events);

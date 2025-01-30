@@ -3,3 +3,25 @@
 
     --animation: 350ms linear;
 }
+
+
+html,
+body {
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    background-color: black;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: black;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #DC56C5;
+    border-radius: 10px;
+}

@@ -3,12 +3,15 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  min-height: 400px;
 }
 .cards__list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 42px 14px;
+  padding-bottom: 30px;
 }
 .cards__item {
   position: relative;
