@@ -14,7 +14,7 @@ export function renderPagination(totalPages, currentPage, onPageClick) {
         }
 
         return ` <li class="pagination__list__item">
-                <button class="pagination__list__button ${page === currentPage ? 'active' : ''}" data-page=${page}>${page+1}</button>
+                <button class="pagination__list__button ${page === currentPage ? 'active' : ''}" data-page="${page}">${page + 1}</button>
             </li>`
     }).join('');
 

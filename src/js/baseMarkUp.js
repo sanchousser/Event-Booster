@@ -14,6 +14,27 @@ const eventsApiService = new EventsApiService();
 
 renderEvents();
 
+
+function handleClickEvent() {
+  const cards = document.querySelectorAll('.cards__item');
+  cards.forEach(card => {
+    card.addEventListener(
+      'click',
+      event => {
+        const cardEl = event.target; 
+        const eventId = cardEl.getAttribute("data-id");
+
+        if (eventId) {
+          onCardClick(eventId);
+        }
+      },
+      { capture: true }
+    );
+  });
+}
+
+
+
 searchForm.addEventListener('submit', onSearchFormSubmit)
 
 async function onSearchFormSubmit(e) {
@@ -31,17 +52,39 @@ async function onCountryFilterSubmit(e) {
 
 }
 
+
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
 
+//     const events = data._embedded?.events || '';
+
+
+    // window.events = data._embedded?.events || '';
     const events = data._embedded?.events || [];
     const markUp = cardMarkUp(events);
+
+    handleClickEvent();
+
+
+
+    // window.events = data._embedded?.events || '';
+    // const markUp = cardMarkUp(events);
+
 
     list.insertAdjacentHTML('beforeend', markUp);
 
     const totalPages = data.page.totalPages;
+
+    console.log(
+      'Total Pages:',
+      totalPages,
+      'Current Page:',
+      eventsApiService.page
+    );
+
     renderPagination(totalPages, eventsApiService.page, onPageClick)
+
   } catch (error) {
     console.error(error);
   }
@@ -54,7 +97,7 @@ function clearEventsList() {
 }
 
 function onPageClick(newPage) {
-  if (newPage = eventsApiService.page) return;
+  if (newPage === eventsApiService.page) return;
   eventsApiService.page = newPage;
 
   clearEventsList();

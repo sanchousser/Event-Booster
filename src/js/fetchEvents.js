@@ -6,7 +6,7 @@ export default class EventsApiService {
     this.page = 0;
     this.pageSize = 12;
     this.searchQuery = '';
-    this.country = ''
+    this.country = '';
   }
 
   async fetchEvents() {

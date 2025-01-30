@@ -1,4 +1,4 @@
-<div class="backdrop">
+<div class="backdrop" id="backdrop-window">
   <div class="modal">
     <div class="modal__content">
       <button class="modal__close-button" id="close">
@@ -25,18 +25,18 @@
         <div class="img__circle">
           <picture>
             <source
-              srcset="/img/modal/desktop/sircle-desktop.png 1x"
+              srcset="/img/modal/desktop/circle-desktop.png 1x"
               media="(min-width:1200px)"
             />
             <source
-              srcset="/img/modal/tablet/sircle-tablet.png 1x"
+              srcset="/img/modal/tablet/circle-tablet.png 1x"
               media="(min-width:768px)"
             />
             <source
-              srcset="/img/modal/mobile/sircle-mobile.png 1x"
+              srcset="/img/modal/mobile/circle-mobile.png 1x"
               media="(max-width:767px)"
             />
-            <img id="img-circle" src="#" alt="picture in a sicrle" />
+            <img id="img-circle" src="#" alt="picture in a cicrle" />
           </picture>
         </div>
       </div>
@@ -59,33 +59,31 @@
         <div class="modal__details">
           <div class="info">
             <h2>INFO</h2>
-            <p class="info__text">
-              Atlas Weekend is the largest music festival in Ukraine. More than
-              200 artists will create a proper music festival atmosphere on 10
-              stages
-            </p>
+            <p class="info__text" id="text-information"></p>
           </div>
 
           <div class="when">
             <h2>WHEN</h2>
-            <p class="event__date">2021-06-09</p>
-            <p class="event__time">20:00 (Kyiv/Ukraine)</p>
+            <p class="event__date" id="event-date">2021-06-09</p>
+            <p class="event__time" id="event-time">20:00 (Kyiv/Ukraine)</p>
           </div>
 
           <div class="where">
             <h2>WHERE</h2>
-            <p class="event__city">Kyiv, Ukraine</p>
-            <p class="event__place">VDNH</p>
+            <p class="event__city" id="event-city">Kyiv, Ukraine</p>
+            <p class="event__place" id="event-place">VDNH</p>
           </div>
 
           <div class="who">
             <h2>WHO</h2>
-            <p class="event_performer">The Black Eyed Peas</p>
+            <p class="event_performer" id="event-performer">
+              The Black Eyed Peas
+            </p>
           </div>
 
           <div class="prices">
             <h2>PRICES</h2>
-            <div class="standart__ticket">
+            <div class="standart__ticket" id="standart-ticket" >
               <svg
                 class="icon__standart"
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,13 +121,15 @@
                   fill="#0E0E0E"
                 />
               </svg>
-              <p class="standart__price">Standart 300-500 UAH</p>
+              <p class="standart__price" id="standart-price" >Standart 300-500 UAH</p>
             </div>
             <div class="button__container__standart">
-              <button class="buy__ticket" type="button">BUY TICKETS</button>
+              <button class="buy__ticket" id="event-ticket" type="button">
+                BUY TICKETS
+              </button>
             </div>
 
-            <div class="vip__ticket">
+            <div class="vip__ticket" id="vip-icket">
               <svg
                 class="icon__vip"
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,10 +167,12 @@
                   fill="#0E0E0E"
                 />
               </svg>
-              <p class="vip__price">VIP 1000-1500 UAH</p>
+              <p class="vip__price" id="vip-price" >VIP 1000-1500 UAH</p>
             </div>
             <div class="button__container__vip">
-              <button class="buy__ticket" type="button">BUY TICKETS</button>
+              <button class="buy__ticket buy__ticket-vip" id="event-ticket-vip" type="button">
+                BUY TICKETS
+              </button>
             </div>
           </div>
         </div>
