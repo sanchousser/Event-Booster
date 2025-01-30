@@ -15,7 +15,7 @@ export default function cardMarkUp(events) {
                 <p class="cards__item__date">${date}</p>
                 <a href="${eventUrl}" class="cards__item__location__link">
                     <svg class="location__item__icon">
-                        <use href="/img/icons/sprite.svg#icon-location"> </use>
+                        <use href="../img/icons/sprite.svg#icon-location"> </use>
                     </svg>
 
                    ${location} </a>
