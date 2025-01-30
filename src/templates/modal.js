@@ -1,15 +1,22 @@
 const FALLBACK_INFO_TEXT = 'No additional info provided :(';
 
 function onCardClick(eventId) {
-  const event = window.events.find(e => {
-    return e.id === eventId;
-  });
+  if (!window.events) {
+    console.error("No info found");
+    return;
+  }
 
-  const venueName = event._embedded?.venues[0].name || 'Unknown location';
+  const event = window.events.find(e => e.id === eventId);
+  if (!event) {
+    console.error("No info found", eventId);
+    return;
+  }
+
+  const venueName = event._embedded?.venues?.[0]?.name || 'Unknown location';
   const timeZone = event.dates.timezone || 'Unknown timezone';
-  const city = event._embedded.venues[0].city.name || 'Unknown city';
-  const artist = event._embedded.attractions[0].name || 'Unknown artist';
-  const href = event._embedded.venues[0].url || 'Unknown href';
+  const city = event._embedded.venues?.[0]?.city.name || 'Unknown city';
+  const artist = event._embedded.attractions?.[0]?.name || 'Unknown artist';
+  const href = event._embedded.venues?.[0]?.url || 'Unknown href';
   const ranges = event?.priceRanges;
   const standartRange = ranges?.find(r => {
     return r.type === 'standard';
@@ -17,9 +24,9 @@ function onCardClick(eventId) {
   const vipRange = ranges?.find(r => {
     return r.type === 'vip';
   });
-  const more = event._embedded.attractions[0].url || 'Unknown more information';
-  const imgCircle = event.images[2].url || 'Unknown image';
-  const imgMain = event.images[0].url || 'Unknown image';
+  const more = event._embedded.attractions?.[0]?.url || 'Unknown more information';
+  const imgCircle = event.images?.[2]?.url || 'Unknown image';
+  const imgMain = event.images?.[0]?.url || 'Unknown image';
 
   handleInfoText(event.info);
   handleDate(event.dates.start, timeZone);
@@ -30,14 +37,20 @@ function onCardClick(eventId) {
   const cleanUpMore = handleMore(more);
   handleImages(imgCircle, imgMain);
 
+
+
+
   const backdropWindow = document.getElementById('backdrop-window');
   backdropWindow.style.display = 'flex';
-
+  backdropWindow.classList.add('show');  
+  
   const modal = document.querySelector('.modal');
   setTimeout(() => modal.classList.add('open'), 10);
 
+
   handleModalClosing(cleanUpTickets, cleanUpMore);
 }
+
 
 function handleInfoText(text = FALLBACK_INFO_TEXT) {
   const infoText = document.getElementById('text-information');

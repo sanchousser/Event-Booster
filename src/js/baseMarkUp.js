@@ -31,6 +31,15 @@ function handleClickEvent() {
       { capture: true }
     );
   });
+  list.addEventListener('click', event => {
+    const cardEl = event.target.closest('.cards__item');
+    if (cardEl) {
+      const eventId = cardEl.getAttribute('data-id');
+      if (eventId && window.events) { 
+        onCardClick(eventId, window.events);
+      }
+    }
+  }, { capture: true });
 }
 
 
@@ -48,11 +57,6 @@ async function onSearchFormSubmit(e) {
   await renderEvents();
 }
 
-async function onCountryFilterSubmit(e) {
-
-}
-
-
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
@@ -64,7 +68,11 @@ export default async function renderEvents() {
     handleClickEvent();
 
     const events = data._embedded?.events || [];
+    window.events = events; 
     const markUp = cardMarkUp(events);
+
+ 
+    handleClickEvent();
 
     list.insertAdjacentHTML('beforeend', markUp);
 
