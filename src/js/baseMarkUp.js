@@ -36,6 +36,8 @@ function handleClickEvent() {
   });
 }
 
+<<<<<<< HEAD
+=======
 
 
 searchForm.addEventListener('submit', onSearchFormSubmit);
@@ -82,6 +84,7 @@ async function onSearchFormSubmit(e) {
 // }
 
 
+>>>>>>> 58c650a0e6958c60c7c9cb623c4f6df01b489346
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();

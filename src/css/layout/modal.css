@@ -7,21 +7,53 @@ h2 {
   font-weight: 600;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: blur(5px);
+  }
+}
+
 .backdrop {
   display: none;
   justify-content: center;
   align-items: center;
-
   position: fixed;
+
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
+
   background: rgba(32, 13, 29, 0.6);
   backdrop-filter: blur(1.5px);
-
   z-index: 100;
+}
+
+.modal.open {
+  animation: fadeIn 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+.modal.close {
+  animation: fadeOut 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 .modal {
@@ -35,6 +67,10 @@ h2 {
   background: #fff2fd;
 
   position: relative;
+
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .modal__close-button {
@@ -44,6 +80,14 @@ h2 {
   right: 25px;
 
   background-color: transparent;
+
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.modal__close-button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
 }
 
 .close__icon {
@@ -58,6 +102,15 @@ h2 {
   justify-content: center;
 
   margin-bottom: 18px;
+}
+
+.circle__img {
+  width: 102px;
+  height: 102px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
 }
 
 .main__img {
@@ -191,6 +244,15 @@ h2 {
   cursor: pointer;
 
   margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.buy__ticket:hover {
+  background: #3b21ea;
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 117, 140, 0.4);
 }
 
 .vip__ticket {
@@ -244,6 +306,14 @@ h2 {
   cursor: pointer;
 
   margin: 0 auto;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.more__button:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 117, 140, 0.4);
 }
 
 @media screen and (min-width: 768px) {
@@ -277,9 +347,18 @@ h2 {
     gap: 30px;
   }
 
+  .circle__img {
+    width: 70px;
+    height: 70px;
+  }
+
   .main__img {
     display: block;
 
+    width: 233px;
+    height: 416px;
+
+    object-fit: cover;
     margin-left: 35px;
   }
 
@@ -350,11 +429,8 @@ h2 {
 @media screen and (min-width: 1200px) {
   .modal {
     width: 930px;
-    height: 1023px;
-
-    /* max-width: 90vw;  */
-    /* max-height: 95vh; */
-    /* overflow-y: auto; */
+    max-height: 90vh;
+    overflow-y: auto;
   }
 
   .modal__header {
@@ -378,7 +454,15 @@ h2 {
     gap: 60px;
   }
 
+  .circle__img {
+    width: 132px;
+    height: 132px;
+  }
+
   .main__img {
+    width: 360px;
+    height: 640px;
+
     margin-left: 30px;
   }
 
@@ -487,6 +571,7 @@ h2 {
     font-weight: 500;
 
     margin-top: 45px;
+    margin-bottom: 62px;
 
     width: 255px;
     height: 40px;
