@@ -43,14 +43,14 @@ searchForm.addEventListener('submit', onSearchFormSubmit);
 countriesList.addEventListener('change', onCountryListTextContentChange);
 
 async function onCountryListTextContentChange(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const selectedValue = e.target.value;
-    countriesListText.textContent = selectedValue;
+  const selectedValue = e.target.value;
+  countriesListText.textContent = selectedValue;
 
   eventsApiService.searchCountry = countryListSearch(e.target.value)
 
-  console.log(eventsApiService.searchCountry)
+  // console.log(eventsApiService.searchCountry)
 
   eventsApiService.page = 0;
   clearEventsList();
@@ -86,7 +86,7 @@ export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
 
-//     const events = data._embedded?.events || '';
+    //     const events = data._embedded?.events || '';
 
     // window.events = data._embedded?.events || '';
     const events = data._embedded?.events || [];
