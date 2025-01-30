@@ -25,8 +25,6 @@ function handleClickEvent() {
   });
 }
 
-
-
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
