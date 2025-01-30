@@ -1,6 +1,7 @@
 import EventsApiService from './fetchEvents';
 import cardMarkUp from '../templates/card';
 import { renderPagination } from './pagination';
+import { countryListSearch } from './countriesListMarkUp';
 // import { createLogger } from 'vite';
 
 
@@ -8,6 +9,10 @@ const list = document.querySelector('.cards__list');
 const paginationList = document.querySelector('.pagination__list');
 const searchForm = document.getElementById('header__form');
 const searchInput = document.getElementById('search-input');
+const countriesList = document.getElementById('header__form__country__select');
+const countriesListText = document.querySelector('.header__form__country__button-text');
+const cardsList = document.querySelector('.cards__list');
+const emptyText = document.querySelector('.cards__empty-text');
 
 
 const eventsApiService = new EventsApiService();
@@ -21,7 +26,7 @@ function handleClickEvent() {
     card.addEventListener(
       'click',
       event => {
-        const cardEl = event.target; 
+        const cardEl = event.target;
         const eventId = cardEl.getAttribute("data-id");
 
         if (eventId) {
@@ -31,20 +36,30 @@ function handleClickEvent() {
       { capture: true }
     );
   });
-  list.addEventListener('click', event => {
-    const cardEl = event.target.closest('.cards__item');
-    if (cardEl) {
-      const eventId = cardEl.getAttribute('data-id');
-      if (eventId && window.events) { 
-        onCardClick(eventId, window.events);
-      }
-    }
-  }, { capture: true });
 }
 
 
+searchForm.addEventListener('submit', onSearchFormSubmit);
 
-searchForm.addEventListener('submit', onSearchFormSubmit)
+countriesList.addEventListener('change', onCountryListTextContentChange);
+
+async function onCountryListTextContentChange(e) {
+  e.preventDefault();
+
+  const selectedValue = e.target.value;
+  countriesListText.textContent = selectedValue;
+
+  eventsApiService.searchCountry = countryListSearch(e.target.value)
+
+
+  eventsApiService.page = 0;
+  clearEventsList();
+  clearPagination();
+  clearEmptyList();
+
+  await renderEvents();
+}
+
 
 async function onSearchFormSubmit(e) {
   e.preventDefault();
@@ -53,28 +68,25 @@ async function onSearchFormSubmit(e) {
   eventsApiService.page = 0;
   clearEventsList();
   clearPagination();
+  clearEmptyList();
 
   await renderEvents();
 }
+
+
 
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
 
-
-    window.events = data._embedded?.events || '';
-
- 
-    handleClickEvent();
-
-    const events = data._embedded?.events || [];
-    window.events = events; 
+    const events = data._embedded?.events || emptyList();
+    window.events = events;
     const markUp = cardMarkUp(events);
 
- 
-    handleClickEvent();
 
     list.insertAdjacentHTML('beforeend', markUp);
+
+    handleClickEvent();
 
     const totalPages = data.page.totalPages;
 
@@ -103,9 +115,20 @@ function onPageClick(newPage) {
   eventsApiService.page = newPage;
 
   clearEventsList();
+  clearEmptyList();
   renderEvents();
 }
 
 function clearPagination() {
   paginationList.innerHTML = '';
+}
+
+function emptyList() {
+  cardsList.innerHTML = ''
+  emptyText.style.display = 'flex'
+}
+
+function clearEmptyList() {
+  emptyText.style.display = 'none'
+
 }

@@ -6,7 +6,7 @@ export default class EventsApiService {
     this.page = 0;
     this.pageSize = 12;
     this.searchQuery = '';
-    this.country = ''
+    this.searchCountry = '';
   }
 
   async fetchEvents() {
@@ -15,6 +15,9 @@ export default class EventsApiService {
       page: this.page,
       size: this.pageSize,
       keyword: this.searchQuery,
+      countryCode: this.searchCountry,
+      sort: 'random'
+
     });
     const url = `${this.#API_URL}?${searchParams}&classificationName=music`;
 
@@ -28,4 +31,4 @@ export default class EventsApiService {
   }
 }
 
-// fetch('https://app.ticketmaster.com/discovery/v2/events.json?apikey=3vLlhLsn5MSlQI96Cy78HBPNhef1xnsS')
+fetch('https://app.ticketmaster.com/discovery/v2/events.json?apikey=3vLlhLsn5MSlQI96Cy78HBPNhef1xnsS')

@@ -1,6 +1,6 @@
 <header class="header">
   <div class="container">
-    <a class="header__logo__link" href="../index.html">
+    <a class="header__logo__link" href="#">
       <picture>
         <source srcset="/img/logo/logo-desktop@2x.png" media="(min-width:1200px)">
         <source srcset="/img/logo/logo-tablet@2x.png" media="(min-width:768px)">
@@ -12,7 +12,7 @@
     <h1 class="header__title">FIND BEST EVENTS<br>AROUND THE WORLD</h1>
     <form id="header__form" class="header__form">
       <label class="header__form__label">
-        <input id="search-input" class="header__form__input" type="text" placeholder="Start searching">
+        <input id="search-input" class="header__form__input" type="text" placeholder="Start searching" autocomplete="off">
         <button class="header__form__btn">
           <svg class="header__form__btn-icon">
             <use href="/img/icons/sprite.svg#icon-search"></use>
@@ -38,7 +38,7 @@
         <button type="button" class="header__form__country__button">
           <p class="header__form__country__button-text">Choose country</p>
           <select class="header__form__country__select" id="header__form__country__select">
-            <option class='header__form__country__option' value="Choose country">Choose country</option>
+            <!-- <option class='header__form__country__option' value="Choose country">Choose country</option> -->
           </select>
           <svg class="header__form__btn-icon__choose">
             <use href="/img/icons/sprite.svg#icon-arrow"></use>
