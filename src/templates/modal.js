@@ -6,26 +6,37 @@ function onCardClick(eventId) {
   });
 
   const venueName = event._embedded?.venues[0].name || 'Unknown location';
-  const timeZone = event.dates.timezone;
+  const timeZone = event.dates.timezone || 'Unknown timezone';
   const city = event._embedded.venues[0].city.name || 'Unknown city';
-  const artist = event._embedded.attractions[0].name;
-  const href = event._embedded.venues[0].url;
+  const artist = event._embedded.attractions[0].name || 'Unknown artist';
+  const href = event._embedded.venues[0].url || 'Unknown href';
   const ranges = event?.priceRanges;
   const standartRange = ranges?.find(r => {
-    return r.type === "standard" 
-  })
+    return r.type === 'standard';
+  });
   const vipRange = ranges?.find(r => {
-    return r.type === "vip" 
-  })
+    return r.type === 'vip';
+  });
+  const more = event._embedded.attractions[0].url || 'Unknown more information';
+  const imgCircle = event.images[2].url || 'Unknown image';
+  const imgMain = event.images[0].url || 'Unknown image';
+
   handleInfoText(event.info);
   handleDate(event.dates.start, timeZone);
   handleLocation(city, venueName);
   handleArtist(artist);
-  handleTickets(href);
-  handlePrices(standartRange, vipRange, standartRange?.currency)
+  const cleanUpTickets = handleTickets(href);
+  handlePrices(standartRange, vipRange, standartRange?.currency);
+  const cleanUpMore = handleMore(more);
+  handleImages(imgCircle, imgMain);
 
   const backdropWindow = document.getElementById('backdrop-window');
   backdropWindow.style.display = 'flex';
+
+  const modal = document.querySelector('.modal');
+  setTimeout(() => modal.classList.add('open'), 10);
+
+  handleModalClosing(cleanUpTickets, cleanUpMore);
 }
 
 function handleInfoText(text = FALLBACK_INFO_TEXT) {
@@ -83,6 +94,11 @@ function handleTickets(href) {
   function onClickButton() {
     window.open(href, '_blank').focus();
   }
+
+  return () => {
+    ticketEl.removeEventListener('click', onClickButton);
+    ticketElVip.removeEventListener('click', onClickButton);
+  };
 }
 
 function handlePrices(standartRange, vipRange, currency) {
@@ -91,7 +107,6 @@ function handlePrices(standartRange, vipRange, currency) {
   const vipPriceEl = document.getElementById('vip-ticket');
   const vipPriceContainer = document.getElementById('vip-price');
   const vipBtnEl = document.getElementById('event-ticket-vip');
-
 
   if (standartRange) {
     standartPriceContainer.style.display = 'flex';
@@ -103,29 +118,56 @@ function handlePrices(standartRange, vipRange, currency) {
     vipBtnEl.style.display = 'flex';
     vipPriceEl.innerText = `Vip ${vipRange.min} - ${vipRange.max} ${currency}`;
   }
+}
 
+function handleMore(href) {
+  const urlEl = document.getElementById('event-more');
 
+  urlEl.addEventListener('click', onClickButton);
+
+  function onClickButton() {
+    window.open(href, '_blank').focus();
+  }
+
+  return () => urlEl.removeEventListener('click', onClickButton);
+}
+
+function handleImages(imgCircle, imgMain) {
+  const imgCircleEl = document.getElementById('img-circle');
+  const imgMainEl = document.getElementById('main-img');
+
+  imgCircleEl.setAttribute('src', imgCircle);
+  imgMainEl.setAttribute('src', imgMain);
 }
 
 window.onCardClick = onCardClick;
 
-function handleModalClosing() {
+function handleModalClosing(cleanUpTickets, cleanUpMore) {
   const overlay = document.getElementById('backdrop-window');
   const close = document.getElementById('close');
+  const modal = document.querySelector('.modal');
 
-  close.addEventListener('click', onClick, { capture: true });
-  overlay.addEventListener('click', onClick, { capture: true });
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.classList.add('close');
 
-  function onClick(event) {
-    const backdropWindow = document.getElementById('backdrop-window');
-    if (
-      event.target == close ||
-      event.target == overlay ||
-      close.contains(event.target)
-    ) {
-      backdropWindow.style.display = 'none';
-    }
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      modal.classList.remove('close');
+    }, 800);
+
+    cleanUpTickets();
+    cleanUpMore();
   }
-}
 
-handleModalClosing();
+  close.addEventListener('click', closeModal, { capture: true });
+  overlay.addEventListener(
+    'click',
+    event => {
+      if (event.target === overlay) {
+        closeModal();
+      }
+    },
+    { capture: true }
+  );
+}
