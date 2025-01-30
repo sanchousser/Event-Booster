@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
   <script type="module" crossorigin src="/event-booster-project/index.js"></script>
-  <link rel="stylesheet" crossorigin href="/event-booster-project/assets/index-5VWZLB18.css">
+  <link rel="stylesheet" crossorigin href="/event-booster-project/assets/index-BMmaz1Sb.css">
 </head>
 
 <body>
@@ -95,37 +95,13 @@
 
       <div class="modal__header">
         <div class="img__circle">
-          <picture>
-            <source
-              srcset="/event-booster-project/assets/circle-desktop-4CLryWgt.png 1x"
-              media="(min-width:1200px)"
-            />
-            <source
-              srcset="/event-booster-project/assets/circle-tablet-B0-aDDEu.png 1x"
-              media="(min-width:768px)"
-            />
-            <source
-              srcset="/event-booster-project/assets/circle-mobile-C7Btm3Jk.png 1x"
-              media="(max-width:767px)"
-            />
-            <img id="img-circle" src="#" alt="picture in a cicrle" />
-          </picture>
+            <img class="circle__img" id="img-circle" src="#" alt="picture in a cicrle" />
         </div>
       </div>
 
       <div class="modal__main">
         <div class="modal__main__img">
-          <picture>
-            <source
-              srcset="/event-booster-project/assets/main-desktop-DD84Dm63.png 1x"
-              media="(min-width:1200px)"
-            />
-            <source
-              srcset="/event-booster-project/assets/main-tablet-B2a6ltsD.png 1x"
-              media="(min-width:768px)"
-            />
-            <img class="main__img" id="main-img" alt="main image" />
-          </picture>
+          <img class="main__img" id="main-img" alt="main image" />
         </div>
 
         <div class="modal__details">
@@ -155,7 +131,7 @@
 
           <div class="prices">
             <h2>PRICES</h2>
-            <div class="standart__ticket" id="standart-ticket" >
+            <div class="standart__ticket" id="standart-ticket">
               <svg
                 class="icon__standart"
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +169,9 @@
                   fill="#0E0E0E"
                 />
               </svg>
-              <p class="standart__price" id="standart-price" >Standart 300-500 UAH</p>
+              <p class="standart__price" id="standart-price">
+                Standart 300-500 UAH
+              </p>
             </div>
             <div class="button__container__standart">
               <button class="buy__ticket" id="event-ticket" type="button">
@@ -239,10 +217,14 @@
                   fill="#0E0E0E"
                 />
               </svg>
-              <p class="vip__price" id="vip-price" >VIP 1000-1500 UAH</p>
+              <p class="vip__price" id="vip-price">VIP 1000-1500 UAH</p>
             </div>
             <div class="button__container__vip">
-              <button class="buy__ticket buy__ticket-vip" id="event-ticket-vip" type="button">
+              <button
+                class="buy__ticket buy__ticket-vip"
+                id="event-ticket-vip"
+                type="button"
+              >
                 BUY TICKETS
               </button>
             </div>
@@ -251,7 +233,7 @@
       </div>
 
       <div class="more">
-        <button class="more__button" type="button">
+        <button class="more__button" type="button" id="event-more">
           MORE FROM THIS AUTHOR
         </button>
       </div>
