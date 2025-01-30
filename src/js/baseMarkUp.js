@@ -58,14 +58,16 @@ export default async function renderEvents() {
     const data = await eventsApiService.fetchEvents();
 
 
-    window.events = data._embedded?.events || '';
-    const markUp = cardMarkUp(events);
+    // window.events = data._embedded?.events || '';
+    // const markUp = cardMarkUp(events);
 
  
-    handleClickEvent();
 
     const events = data._embedded?.events || [];
     const markUp = cardMarkUp(events);
+
+    handleClickEvent();
+
 
     list.insertAdjacentHTML('beforeend', markUp);
 
