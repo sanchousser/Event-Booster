@@ -51,7 +51,6 @@ async function onCountryListTextContentChange(e) {
 
   eventsApiService.searchCountry = countryListSearch(e.target.value)
 
-  // console.log(eventsApiService.searchCountry)
 
   eventsApiService.page = 0;
   clearEventsList();
@@ -60,12 +59,6 @@ async function onCountryListTextContentChange(e) {
 
   await renderEvents();
 }
-
-// async function onCountryFilterSearch() {
-// }
-
-
-
 
 
 async function onSearchFormSubmit(e) {
@@ -80,30 +73,20 @@ async function onSearchFormSubmit(e) {
   await renderEvents();
 }
 
-// async function onCountryFilterSubmit(e) {
-
-// }
 
 
 export default async function renderEvents() {
   try {
     const data = await eventsApiService.fetchEvents();
 
-    //     const events = data._embedded?.events || '';
-
-    // window.events = data._embedded?.events || '';
     const events = data._embedded?.events || emptyList();
+    window.events = events;
     const markUp = cardMarkUp(events);
-
-    handleClickEvent();
-
-
-
-    // window.events = data._embedded?.events || '';
-    // const markUp = cardMarkUp(events);
 
 
     list.insertAdjacentHTML('beforeend', markUp);
+
+    handleClickEvent();
 
     const totalPages = data.page.totalPages;
 
