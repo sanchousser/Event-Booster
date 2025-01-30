@@ -11,11 +11,21 @@ const countriesListMarkUp = countries.map(country => {
 
 countriesList.insertAdjacentHTML('beforeend', countriesListMarkUp);
 
-countriesList.addEventListener('change', onCountryListChange);
+// function onCountryListChange(e) {
+//     const selectedValue = e.target.value;
+//     countriesListText.textContent = selectedValue;
 
-function onCountryListChange(e) {
-    const selectedValue = e.target.value;
-    countriesListText.textContent = selectedValue;
+// }
+
+
+
+
+export function countryListSearch(countryName) {
+    return countries
+    .find(country => country.en === countryName).code
 }
+
+
+
 
 

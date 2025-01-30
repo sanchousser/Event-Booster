@@ -1,101 +1,338 @@
 [
     {
-        "en": "Austria"
+        "en": "Choose country",
+        "code": ""
     },
     {
-        "en": "Belgium"
+        "en": "United States Of America",
+        "code": "US"
     },
     {
-        "en": "Bosnia and Herzegovina"
+        "en": "Andorra",
+        "code": "AD"
     },
     {
-        "en": "United Kingdom"
+        "en": "Anguilla",
+        "code": "AI"
     },
     {
-        "en": "Hungary"
+        "en": "Argentina",
+        "code": "AR"
     },
     {
-        "en": "Germany"
+        "en": "Australia",
+        "code": "AU"
     },
     {
-        "en": "Georgia"
+        "en": "Austria",
+        "code": "AT"
     },
     {
-        "en": "Denmark"
+        "en": "Azerbaijan",
+        "code": "AZ"
     },
     {
-        "en": "Ireland"
+        "en": "Bahamas",
+        "code": "BS"
     },
     {
-        "en": "Spain"
+        "en": "Bahrain",
+        "code": "BH"
     },
     {
-        "en": "Italy"
+        "en": "Barbados",
+        "code": "BB"
     },
     {
-        "en": "Canada"
+        "en": "Belgium",
+        "code": "BE"
     },
     {
-        "en": "Latvia"
+        "en": "Bermuda",
+        "code": "BM"
     },
     {
-        "en": "Lithuania"
+        "en": "Brazil",
+        "code": "BR"
     },
     {
-        "en": "Netherlands"
+        "en": "Bulgaria",
+        "code": "BG"
     },
     {
-        "en": "Norway"
+        "en": "Canada",
+        "code": "CA"
     },
     {
-        "en": "Poland"
+        "en": "Chile",
+        "code": "CL"
     },
     {
-        "en": "Portugal"
+        "en": "China",
+        "code": "CN"
     },
     {
-        "en": "South Korea"
+        "en": "Colombia",
+        "code": "CO"
     },
     {
-        "en": "Romania"
+        "en": "Costa Rica",
+        "code": "CR"
     },
     {
-        "en": "Serbia"
+        "en": "Croatia",
+        "code": "HR"
     },
     {
-        "en": "Slovakia"
+        "en": "Cyprus",
+        "code": "CY"
     },
     {
-        "en": "Slovenia"
+        "en": "Czech Republic",
+        "code": "CZ"
     },
     {
-        "en": "United States"
+        "en": "Denmark",
+        "code": "DK"
     },
     {
-        "en": "Finland"
+        "en": "Dominican Republic",
+        "code": "DO"
     },
     {
-        "en": "France"
+        "en": "Ecuador",
+        "code": "EC"
     },
     {
-        "en": "Croatia"
+        "en": "Estonia",
+        "code": "EE"
     },
     {
-        "en": "Czech Republic"
+        "en": "Faroe Islands",
+        "code": "FO"
     },
     {
-        "en": "Switzerland"
+        "en": "Finland",
+        "code": "FI"
     },
     {
-        "en": "Sweden"
+        "en": "France",
+        "code": "FR"
     },
     {
-        "en": "Estonia"
+        "en": "Georgia",
+        "code": "GE"
     },
     {
-        "en": "South Africa"
+        "en": "Germany",
+        "code": "DE"
     },
     {
-        "en": "Japan"
+        "en": "Ghana",
+        "code": "GH"
+    },
+    {
+        "en": "Gibraltar",
+        "code": "GI"
+    },
+    {
+        "en": "Great Britain",
+        "code": "GB"
+    },
+    {
+        "en": "Greece",
+        "code": "GR"
+    },
+    {
+        "en": "Hong Kong",
+        "code": "HK"
+    },
+    {
+        "en": "Hungary",
+        "code": "HU"
+    },
+    {
+        "en": "Iceland",
+        "code": "IS"
+    },
+    {
+        "en": "India",
+        "code": "IN"
+    },
+    {
+        "en": "Ireland",
+        "code": "IE"
+    },
+    {
+        "en": "Israel",
+        "code": "IL"
+    },
+    {
+        "en": "Italy",
+        "code": "IT"
+    },
+    {
+        "en": "Jamaica",
+        "code": "JM"
+    },
+    {
+        "en": "Japan",
+        "code": "JP"
+    },
+    {
+        "en": "Korea, Republic of",
+        "code": "KR"
+    },
+    {
+        "en": "Latvia",
+        "code": "LV"
+    },
+    {
+        "en": "Lebanon",
+        "code": "LB"
+    },
+    {
+        "en": "Lithuania",
+        "code": "LT"
+    },
+    {
+        "en": "Luxembourg",
+        "code": "LU"
+    },
+    {
+        "en": "Malaysia",
+        "code": "MY"
+    },
+    {
+        "en": "Malta",
+        "code": "MT"
+    },
+    {
+        "en": "Mexico",
+        "code": "MX"
+    },
+    {
+        "en": "Monaco",
+        "code": "MC"
+    },
+    {
+        "en": "Montenegro",
+        "code": "ME"
+    },
+    {
+        "en": "Morocco",
+        "code": "MA"
+    },
+    {
+        "en": "Netherlands",
+        "code": "NL"
+    },
+    {
+        "en": "Netherlands Antilles",
+        "code": "AN"
+    },
+    {
+        "en": "New Zealand",
+        "code": "NZ"
+    },
+    {
+        "en": "Northern Ireland",
+        "code": "ND"
+    },
+    {
+        "en": "Norway",
+        "code": "NO"
+    },
+    {
+        "en": "Peru",
+        "code": "PE"
+    },
+    {
+        "en": "Poland",
+        "code": "PL"
+    },
+    {
+        "en": "Portugal",
+        "code": "PT"
+    },
+    {
+        "en": "Romania",
+        "code": "RO"
+    },
+    {
+        "en": "Russian Federation",
+        "code": "RU"
+    },
+    {
+        "en": "Saint Lucia",
+        "code": "LC"
+    },
+    {
+        "en": "Saudi Arabia",
+        "code": "SA"
+    },
+    {
+        "en": "Serbia",
+        "code": "RS"
+    },
+    {
+        "en": "Singapore",
+        "code": "SG"
+    },
+    {
+        "en": "Slovakia",
+        "code": "SK"
+    },
+    {
+        "en": "Slovenia",
+        "code": "SI"
+    },
+    {
+        "en": "South Africa",
+        "code": "ZA"
+    },
+    {
+        "en": "Spain",
+        "code": "ES"
+    },
+    {
+        "en": "Sweden",
+        "code": "SE"
+    },
+    {
+        "en": "Switzerland",
+        "code": "CH"
+    },
+    {
+        "en": "Taiwan",
+        "code": "TW"
+    },
+    {
+        "en": "Thailand",
+        "code": "TH"
+    },
+    {
+        "en": "Trinidad and Tobago",
+        "code": "TT"
+    },
+    {
+        "en": "Turkey",
+        "code": "TR"
+    },
+    {
+        "en": "Ukraine",
+        "code": "UA"
+    },
+    {
+        "en": "United Arab Emirates",
+        "code": "AE"
+    },
+    {
+        "en": "Uruguay",
+        "code": "UY"
+    },
+    {
+        "en": "Venezuela",
+        "code": "VE"
     }
 ]

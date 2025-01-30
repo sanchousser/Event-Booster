@@ -1,6 +1,8 @@
 .pagination__section {
     padding-top: 60px;
-    background-color: black;
+    background-color: #0E0E0E;
+    padding-bottom: 60px;
+    
 }
 
 .pagination__list {
