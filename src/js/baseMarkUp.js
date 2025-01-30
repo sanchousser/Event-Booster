@@ -11,6 +11,8 @@ const searchForm = document.getElementById('header__form');
 const searchInput = document.getElementById('search-input');
 const countriesList = document.getElementById('header__form__country__select');
 const countriesListText = document.querySelector('.header__form__country__button-text');
+const cardsList = document.querySelector('.cards__list');
+const emptyText = document.querySelector('.cards__empty-text');
 
 
 const eventsApiService = new EventsApiService();
@@ -54,6 +56,7 @@ async function onCountryListTextContentChange(e) {
   eventsApiService.page = 0;
   clearEventsList();
   clearPagination();
+  clearEmptyList();
 
   await renderEvents();
 }
@@ -72,6 +75,7 @@ async function onSearchFormSubmit(e) {
   eventsApiService.page = 0;
   clearEventsList();
   clearPagination();
+  clearEmptyList();
 
   await renderEvents();
 }
@@ -88,7 +92,7 @@ export default async function renderEvents() {
     //     const events = data._embedded?.events || '';
 
     // window.events = data._embedded?.events || '';
-    const events = data._embedded?.events || [];
+    const events = data._embedded?.events || emptyList();
     const markUp = cardMarkUp(events);
 
     handleClickEvent();
@@ -128,9 +132,20 @@ function onPageClick(newPage) {
   eventsApiService.page = newPage;
 
   clearEventsList();
+  clearEmptyList();
   renderEvents();
 }
 
 function clearPagination() {
   paginationList.innerHTML = '';
+}
+
+function emptyList() {
+  cardsList.innerHTML = ''
+  emptyText.style.display = 'flex'
+}
+
+function clearEmptyList() {
+  emptyText.style.display = 'none'
+
 }

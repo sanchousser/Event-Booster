@@ -143,6 +143,15 @@
   left: -10px;
 }
 
+.cards__empty-text { 
+  color: white;
+  font-size: 45px;
+  text-align: center;
+  display: none;
+  justify-content: center;
+
+}
+
 @media only screen and (min-width: 1200px) {
   .cards__list {
     gap: 65px 70px;
