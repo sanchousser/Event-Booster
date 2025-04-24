@@ -1,11 +1,11 @@
 {
-  "name": "event-booster-project",
+  "name": "Event-Booster",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/event-booster-project/",
+    "build": "vite build --base=/Event-Booster/",
     "preview": "vite preview"
   },
   "devDependencies": {
